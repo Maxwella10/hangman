@@ -9,3 +9,9 @@ word = random.choice(word_list)
 
 # Step 5: Print out word to the standard output. Run the code several times and observe the words printed out after each run.
 print(word)
+
+# Step 6: Using the input function, ask the user to enter a single letter.
+guess = input("Please enter a single letter: ")
+
+# Step 7: Assign the input to a variable called guess and print guess variable.
+print(guess)
