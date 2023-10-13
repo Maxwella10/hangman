@@ -23,5 +23,26 @@ if len(guess) == 1 and guess.isalpha():
     # Step 9: In the body of the if statement, print a message that says "Good guess!".
     print("Good guess!")
 else:
-    # Step 10: Create an else block that prints "Oops! That is not a valid input." if the preceding conditions are not met.
+    #Step 10: Create an else block that prints "Oops! That is not a valid input." if the preceding conditions are not met.
     print("Oops! That is not a valid input.")
+
+
+
+def create_word_list():
+    favorite_fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+    return favorite_fruits
+
+def select_random_word(word_list):
+    import random
+    random_word = random.choice(word_list)
+    return random_word
+
+def get_user_input():
+    user_guess = input("Please enter a single letter: ")
+    return user_guess
+
+def validate_user_input(user_guess):
+    if len(user_guess) == 1 and user_guess.isalpha():
+        print("Good guess!")
+    else:
+        print("Oops! That is not a valid input.")
