@@ -1,7 +1,7 @@
 # Write import random on the line. Note: To import a module, you have to use the import keyword at the top of the file.
 import random
 # Step 2: Create a list containing the names of your 5 favorite fruits.
-favorite_fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+favorite_fruits =  ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
 
 # Step  3 & 4: Create the random.choice method and pass the word_list variable into the choice method.
 word_list = favorite_fruits
@@ -29,7 +29,7 @@ else:
 
 
 def create_word_list():
-    favorite_fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+    favorite_fruits =  ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
     return favorite_fruits
 
 def select_random_word(word_list):
