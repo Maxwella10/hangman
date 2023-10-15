@@ -40,3 +40,23 @@ To test the code, the ask_letter() method can be called within the play_game() f
 To test the code, the ask_letter() method can be called within the play_game() function. In case a user inputs one character, the programme is instructed to print the following message:
 
 ![](hangman_game_seven.png)
+
+
+## Milestone 2
+
+All required functionalities implemented in M2 are marked in hangman_solution.py as # TODO 2. M2 required the initialisation of the program's attributes as required in the docstring. These were as below:
+
+
+     def __init__(self, word_list, num_lives=5):
+        self.word = random.choice(word_list)
+        self.word_guessed = list('_' * len(self.word))
+        self.num_letters = len(set(list(self.word)))
+        self.num_lives = num_lives
+        self.list_letters = []
+        print(f"The mistery word has {self.num_letters} characters")
+        print(f"{self.word_guessed}")
+
+
+word is an attribute of the string type assigned to a word chosen randomly by the machine from word_list, a list that contains the following 6 elements: ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']. For this random selection to be possible, I imported the random package. word_guessed is a list attribute that contains as many '_' strings as there are characters in the randomly picked word; for this, I decided to use the len() string method. num_letters stores the number of unique letters in the word that have not been guessed yet as an integer. To do so, I first converted word into a list type using the list() method, and then used len() on the unique unique letters within it, which I singled out using the set() method. Finally, I initialised num_lives, the number of lives left, as an integer set later in the program as 5, and list_letters as a list to which all letters tried by the user are appended during the game. As required in the template, the programme runs print(f"{letter} was already tried") if the letter tried by the user is already in list_letters.
+
+To check whether the __init__ method worked, __init__(word_list) can be called within the play_game() function, thus initialising the messages seen in the introduction, which I repeat below.
