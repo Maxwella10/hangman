@@ -36,3 +36,7 @@ To test the code, the ask_letter() method can be called within the play_game() f
 To test the code, the ask_letter() method can be called within the play_game() function. In case of a wrong input of more than one character, the programme is instructed to print the following message:
 
 ![](hangman_game_eight.png)
+
+To test the code, the ask_letter() method can be called within the play_game() function. In case a user inputs one character, the programme is instructed to print the following message:
+
+![](hangman_game_seven.png)
