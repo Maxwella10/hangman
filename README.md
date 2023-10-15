@@ -15,3 +15,14 @@ Being a command line application, the program can be executed using the Python3 
 Upon initialisation, the user is informed of the length of the randomly selected word to be guessed, which is presented to them as an empty list along the lines of that in the following image.
 
  ![](hangman_game_three.png)
+
+ The user is then asked to guess a single letter and input it in the programme repeatedly, until they either win or lose the game. Messages are displayed throughout, as I discuss in what follows.
+
+## Milestone 1
+
+The basic logic of the Hangman game was provided in a publicly accessible template by AiCore. Milestone 1 (M1) was straightforward, and is marked in the hangman.solution.py file as # TODO 1. M1 basically only required to modify the ask_letter() method to ask the user to input a letter, store it in a variable called letter, and check whether letter was just one character, or more.
+
+letter = input("Please enter a letter: ")
+if len(letter) != 1:
+    print("Please, enter just one character")
+To test the code, the ask_letter() method can be called within the play_game() function. In case of a wrong input of more than one character, the programme is instructed to print the following message:
