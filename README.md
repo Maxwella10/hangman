@@ -32,3 +32,5 @@ To test the code, the ask_letter() method can be called within the play_game() f
     if len(letter) != 1:
 
     print("Please, enter just one character")
+
+To test the code, the ask_letter() method can be called within the play_game() function. In case of a wrong input of more than one character, the programme is instructed to print the following message:
