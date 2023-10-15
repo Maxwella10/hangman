@@ -26,7 +26,7 @@
  #   guess = input("Guess a letter: ")
 
     # Step 3: Check if the guess is in the secret word.
- #   secret_word = random.choice(["apple", "banana", "orange", "mango", "strawberry"])  # Randomly choose a word
+ #   secret_word = random.choice( ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon'])  # Randomly choose a word
  #   if guess in secret_word:
         # If the guess is in the word, print a success message.
    #     print(f"Good guess! '{guess}' is in the word: {secret_word}")
@@ -46,7 +46,7 @@ def check_guess(guess):
     guess = guess.lower()
     
     # Step 3: Check if the guess is in the secret word.
-    secret_word = random.choice(["apple", "banana", "orange", "mango", "strawberry"])
+    secret_word = random.choice( ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon'])
     if guess in secret_word:
         # If the guess is in the word, print a success message.
         print(f"Good guess! '{guess}' is in the word: {secret_word}")
