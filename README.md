@@ -13,3 +13,5 @@ ask_letter(self), that asks the user for a letter and checks if this letter has 
 Being a command line application, the program can be executed using the Python3 hangman_solution.py command.
 
 Upon initialisation, the user is informed of the length of the randomly selected word to be guessed, which is presented to them as an empty list along the lines of that in the following image.
+
+ ![](hangman_game_three.png)
