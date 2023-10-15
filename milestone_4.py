@@ -44,7 +44,8 @@ class Hangman:
 
 
 # Example Usage:
-word_list = ['apple', 'banana', 'orange', 'mango', 'strawberry']
+word_list =  ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+
 hangman_game = Hangman(word_list)
 
 hangman_game.ask_for_input()  # Call the ask_for_input method to test your code
@@ -88,7 +89,8 @@ class Hangman:
                 break
 
 # Example Usage:
-word_list = ['apple', 'banana', 'orange', 'mango', 'strawberry']
+word_list =  ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+
 hangman_game = Hangman(word_list)
 
 hangman_game.ask_for_input()  # Call the ask_for_input method to test your code
