@@ -60,3 +60,159 @@ All required functionalities implemented in M2 are marked in hangman_solution.py
 word is an attribute of the string type assigned to a word chosen randomly by the machine from word_list, a list that contains the following 6 elements: ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']. For this random selection to be possible, I imported the random package. word_guessed is a list attribute that contains as many '_' strings as there are characters in the randomly picked word; for this, I decided to use the len() string method. num_letters stores the number of unique letters in the word that have not been guessed yet as an integer. To do so, I first converted word into a list type using the list() method, and then used len() on the unique unique letters within it, which I singled out using the set() method. Finally, I initialised num_lives, the number of lives left, as an integer set later in the program as 5, and list_letters as a list to which all letters tried by the user are appended during the game. As required in the template, the programme runs print(f"{letter} was already tried") if the letter tried by the user is already in list_letters.
 
 To check whether the __init__ method worked, __init__(word_list) can be called within the play_game() function, thus initialising the messages seen in the introduction, which I repeat below.
+
+![](hangman_game_nine.png)
+
+As a bonus task, we were additionally invited to find a way to print diagrams that resembled the classic Handman drawings. My solution to the challenge was to create the following list of visuals, which I called self.list_visual.
+
+
+    self.list_visual = [
+            '''
+            __________
+              |      |
+              |    \ O /
+              |      |
+              |     /\\
+            __|____
+            ''',''' 
+            __________
+              |      |
+              |      O
+              |      |
+              |     /\\
+            __|____
+            ''','''
+             __________
+              |      |
+              |      O
+              |      |
+              |     /
+            __|____
+            ''','''
+             __________
+              |      |
+              |      O
+              |      |
+              |
+            __|____
+            ''','''
+             __________
+              |      |
+              |      O
+              |
+              |
+            __|____
+             ''']
+
+
+
+The diagrams in the list are in reverse order with respect to their appearence in the code, so as to be callable passing the number of lives (4 to 0) as the index of self.list_visual. For instance, once the user loses their first life, they're left with 4 lives. At that point, print(f"{self.list_visual[self.num_lives]}") prints the fifth element in self.list_visual, which is rendered as follows:
+
+
+![](hangman_game_four.png)
+
+
+## Milestone 3
+
+In M3, all # TODO 3 tasks had to be implemented, which were virtually all within the check_letter() method.
+
+Given that the predetermined list of words to be guessed only contains lowercase letters, check_letter() first converts the input into lowercase characters using the lower() method. Subsequently, the method checks whether the input letter is in the random word to be guessed using an if-statement:
+
+    letter = letter.lower()
+        if letter in self.word:
+            print(f"The letter {letter} is in the word to be guessed!")
+
+
+If the letter is indeed in the word to be guessed, the respective '_' in the word_guessed list is replaced with the letter. Relevant messages are then printed accordingly, which I reproduce in the screnshot below.
+
+
+    letter_index = 0
+            for position, char in enumerate(self.word):
+                if char == letter:
+                    letter_index = position
+                    self.word_guessed[letter_index] = letter
+            print(f"Nice! {letter} is in the word!")
+            print(f"{self.word_guessed}") 
+
+
+
+![](hangman_game_five.png)
+
+
+Conversely, when the input letter is not in the word to be guessed, the programme executes the else-statement below, which reduces the number of lives by 1, and prints relevant messages:
+
+    else:
+            self.num_lives -= 1
+            print(f"Sorry, {letter} is not in the word.")
+            print(f"{self.list_visual[self.num_lives]}")
+            print(f"You have {self.num_lives} lives left.")
+
+
+
+In all cases, the input letter is appended to the list of letters tried by the user, list_letters, using the self.list_letters.append(letter) command.
+
+As for all previous methods, check_letter() can be tested by calling it within the play_game() function.
+
+## Milestone 4
+
+Milestone 4 implements all functionalities marked as # TODO 4 in the template, and thus creates the logic behind the game by asking the user for a letter iteratively until the user either guesses the word or run out of lives. Messages are displayed accordingly; here, I reproduce the message displayed when 4 lives are left.
+
+![](hangman_game.png)
+
+I decided to enclose this part of the code in a while-statement, as follows:
+
+    while True:
+        if game.num_lives == 0:
+            print(f"You lost! The word was {game.word}")
+            break
+        elif game.num_letters > 0:
+            game.ask_letter()
+        else:
+            print("Congratulations! You won the game!")
+            break
+
+
+ For the sake of consistency, I did the same with the if-statement within the check_letter() method.
+
+The coding of the logic behind Hangman basically marked the end of the project. Nevertheless, it was possible to improve one's code for extra bonus points, which I did. Therefore, the project directory, hangman, contains two .py files for this task:
+
+hangman_solution.py, which I have been discussing so far;
+hangman_solution_bonus.py, a more polished version of hangman_solution.py, which I discuss this in the following section.
+
+## Improvements to the basic game
+
+The code in hangman_solution.py was updated to make the code more lisible and the game clearer and more entertaining. The basic changes were as follows:
+
+The list of fruit was updated and now features 20 fruit names instead of just 6;
+all # TODO instructions were deleted;
+meaningful comments were added to make the code more straightforward;
+most print() statements were updated to display more meaningful messages, and to improve the grammar of the existing ones;
+messages to be displayed during crucial moment of the game were added, which I decided to store in a new attribute of the __init__ class, the ascii_messages list. This contains three messages, 'hello, 'you lose' and 'you win', which have the following forms:
+
+    self.ascii_messages = [
+            '''
+            %%    %%   %%%%%%%%   %%         %%         %%%%%%%%   
+            %%    %%   %%         %%         %%         %%    %%   
+            %%%%%%%%   %%%%%      %%         %%         %%    %%   
+            %%    %%   %%         %%         %%         %%    %%           
+            %%    %%   %%%%%%%%   %%%%%%%%   %%%%%%%%   %%%%%%%%   
+            ''','''
+            %%    %%   %%%%%%%%   %%    %%       %%         %%%%%%%%   %%%%%%%%   %%%%%%%%
+            %%    %%   %%    %%   %%    %%       %%         %%    %%   %%         %%
+            %%%%%%%%   %%    %%   %%    %%       %%         %%    %%   %%%%%%%%   %%%%%
+                  %%   %%    %%   %%    %%       %%         %%    %%         %%   %%
+            %%%%%%%%   %%%%%%%%   %%%%%%%%       %%%%%%%%   %%%%%%%%   %%%%%%%%   %%%%%%%%
+            ''','''
+            %%    %%   %%%%%%%%   %%    %%       %%      %%   %%   %%     %%
+            %%    %%   %%    %%   %%    %%       %%      %%   %%   %%%%   %%
+            %%%%%%%%   %%    %%   %%    %%       %%  %%  %%   %%   %% %%  %%
+                  %%   %%    %%   %%    %%       %%  %%  %%   %%   %%  %% %%
+            %%%%%%%%   %%%%%%%%   %%%%%%%%        %%%%%%%     %%   %%   %%%%
+            '''
+        ]
+        
+
+   When printed, the messages are rendered as shown in the image below:
+
+
+   ![](hangman_game_six.png)
