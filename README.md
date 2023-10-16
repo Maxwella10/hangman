@@ -210,9 +210,18 @@ messages to be displayed during crucial moment of the game were added, which I d
             %%%%%%%%   %%%%%%%%   %%%%%%%%        %%%%%%%     %%   %%   %%%%
             '''
         ]
-        
+
+
+ 
 
    When printed, the messages are rendered as shown in the image below:
 
 
    ![](hangman_game_six.png)
+
+
+## Licenced
+
+  [Python](https://www.python.org/)
+
+  [MIT](https://mit-license.org/)
